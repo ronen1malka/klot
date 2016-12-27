@@ -18,7 +18,7 @@ class Member {
     motherName: string = "";
     status: string = "ACTIVE";
     events = [];
-    children = [];
+    children :Child[];
     parasha: string = "";
     barmitzva: string = "";
     timeStamp: Date = new Date();
