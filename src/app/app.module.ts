@@ -4,9 +4,22 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { LoginPage } from '../pages/login/login';
 import { Page2 } from '../pages/page2/page2';
+<<<<<<< HEAD
 import { HomePage } from '../pages/home/home';
 import { RegestrationFormPage } from '../pages/regestration-form/regestration-form'
 import { Storage } from '@ionic/storage';
+=======
+import { AngularFireModule } from 'angularfire2';
+
+const config = {
+  apiKey: "AIzaSyBXFVJ0IluXJ2xFujaUguJygC9KO1FyTjo",
+  authDomain: "project1-e57a3.firebaseapp.com",
+  databaseURL: "https://project1-e57a3.firebaseio.com",
+  storageBucket: "project1-e57a3.appspot.com",
+  messagingSenderId: "777962288428"
+};
+
+>>>>>>> origin/master
 
 
 //Services
@@ -31,7 +44,11 @@ export const firbaseConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+<<<<<<< HEAD
     AngularFireModule.initializeApp(firbaseConfig)
+=======
+    AngularFireModule.initializeApp(config)
+>>>>>>> origin/master
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,11 +59,15 @@ export const firbaseConfig = {
     Page2,
     HomePage
   ],
+<<<<<<< HEAD
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
     alerts,
     Storage
   ]
+=======
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+>>>>>>> origin/master
 })
 export class AppModule { }
