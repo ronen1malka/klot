@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>כניסה</ion-title>
+    <ion-title>רישום</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,6 +9,12 @@
 
 <ion-content>
   <ion-list no-lines>
+
+    <ion-item>
+      <ion-label stacked>שם</ion-label>
+      <ion-input type="text" [(ngModel)]="userName" required></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-label stacked>אימייל</ion-label>
       <ion-input type="email" [(ngModel)]="email"></ion-input>
@@ -20,22 +26,15 @@
     </ion-item>
 
     <ion-item>
-      <button ion-button block default (click)="doLogin()">
-        כניסה
-      </button>
+      <ion-label stacked>הכנס סיסמה שנית</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
     </ion-item>
 
     <ion-item>
-      <button ion-button block color="secondary" (click)="register()">
+      <button ion-button block default (click)="register()">
         רישום
       </button>
     </ion-item>
 
-    <ion-item>
-      <button ion-button block color="secondary" (click)="logout()">
-        יציאה
-      </button>
-    </ion-item>
-<ion-spinner></ion-spinner>
   </ion-list>
 </ion-content>
