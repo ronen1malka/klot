@@ -1,14 +1,61 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>קהילות</ion-title>
+  <ion-navbar color="primary">
+    <ion-buttons>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="home"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="contacts"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="person"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="calendar"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <h3>ברוך הבא לקהילות</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-30 color="primary" style="align-content: center">
+        <button ion-button large icon-only clear icon-top>
+        <ion-icon name="person"></ion-icon>
+      </button>
+      </ion-col>
 
+      <ion-col width-30 color="primary">
+        <button ion-button large clear icon-top>
+        <ion-icon style="font-size: 3em;clear: both" name="calendar"></ion-icon>
+        זמנים
+      </button>
+      </ion-col>
+
+      <ion-col width-30 color="primary">
+        <button ion-button large icon-only clear>
+        <div>
+        <ion-icon name='chatbubbles'></ion-icon>
+        <br>
+        <label>שיחות</label>
+        </div>
+        </button>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

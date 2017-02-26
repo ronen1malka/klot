@@ -32,6 +32,9 @@ export class LoginPage {
         this.password = val.password
         this.doLogin();
       }
+      else{
+        console.info("cannot find creds in storage.");
+      }
     })
   }
 
@@ -51,7 +54,7 @@ export class LoginPage {
           this._alerts.showAlert("שגיאה", "כתובת אמייל אינה חוקית", ["OK"]);
         }
         else {
-          this._alerts.showAlert("Error", "Login failed", ["OK"])
+          this._alerts.showAlert("שגיאה", "Login failed", ["OK"])
         }
       });
   }

@@ -3,7 +3,7 @@ import { AngularFire } from 'angularfire2';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-page1',
+  
   templateUrl: 'page1.html'
 })
 export class Page1 {
