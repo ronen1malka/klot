@@ -1,8 +1,3 @@
-import { Parameter } from './parameter';
-import { BookRecord } from './bookRecord';
-import { Member } from './member';
-import { Account } from './account';
-
 export class Organization {
     id: number = -1;
     code: number;
