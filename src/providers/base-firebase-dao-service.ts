@@ -18,8 +18,8 @@ export class BaseFirebaseDaoService {
 
   }
 
-  update() {
-
+  update(key: string, item: any) {
+    this.af.database.object(this.rootDoc + "/" + key).set(item);
   }
 
   create(list: FirebaseListObservable<any[]>, item: any) {
@@ -27,7 +27,7 @@ export class BaseFirebaseDaoService {
     list.push(item);
   }
 
-  remove() {
-
+  remove(key: string) {
+    this.af.database.object(this.rootDoc + "/" + key).remove;
   }
 }
