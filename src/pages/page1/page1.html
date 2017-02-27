@@ -5,57 +5,43 @@
         <ion-icon name="menu"></ion-icon>
       </button>
       <button ion-button icon-only>
-        <ion-icon name="home"></ion-icon>
-      </button>
-
-      <button ion-button icon-only>
-        <ion-icon name="contacts"></ion-icon>
-      </button>
-
-      <button ion-button icon-only>
-        <ion-icon name="chatbubbles"></ion-icon>
-      </button>
-
-      <button ion-button icon-only>
-        <ion-icon name="person"></ion-icon>
-      </button>
-
-      <button ion-button icon-only>
-        <ion-icon name="calendar"></ion-icon>
+        <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3>ברוך הבא לקהילות</h3>
+  <h1 style="text-align: center">ברוך הבא לקהילות</h1>
   <ion-grid>
     <ion-row>
-      <ion-col width-30 color="primary" style="align-content: center">
-        <button ion-button large icon-only clear icon-top>
-        <ion-icon name="person"></ion-icon>
-      </button>
+      <ion-col width-30>
+        <button-icon label="אזור אישי" icon="person" (onClick)="clickPerson()"></button-icon>
       </ion-col>
 
-      <ion-col width-30 color="primary">
-        <button ion-button large clear icon-top>
-        <ion-icon style="font-size: 3em;clear: both" name="calendar"></ion-icon>
-        זמנים
-      </button>
+      <ion-col width-30>
+        <button-icon label="זמנים" icon="calendar" color="secondary"></button-icon>
       </ion-col>
 
-      <ion-col width-30 color="primary">
-        <button ion-button large icon-only clear>
-        <div>
-        <ion-icon name='chatbubbles'></ion-icon>
-        <br>
-        <label>שיחות</label>
-        </div>
-        </button>
+      <ion-col width-30>
+        <button-icon label="שיחות" icon="chatbubbles" color="dark"></button-icon>
       </ion-col>
-
-
     </ion-row>
+
+    <ion-row>
+      <ion-col width-30 >
+        <button-icon label="החשבונות שלי" icon="cash" color="danger" (onclick)="clickPayments()"></button-icon>
+      </ion-col>
+
+      <ion-col width-30 >
+        <button-icon label="חברים" icon="contacts" color="dark" (onClick)="clickMembers()"></button-icon>
+      </ion-col>
+
+      <ion-col width-30>
+
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
 </ion-content>

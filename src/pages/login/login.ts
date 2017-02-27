@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 import { Page1 } from '../page1/page1';
 import { RegestrationFormPage } from '../regestration-form/regestration-form';
 import { LoginService } from '../../providers/login-service';
@@ -10,7 +10,8 @@ import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  
 })
 export class LoginPage {
   email = "";
@@ -38,14 +39,12 @@ export class LoginPage {
     })
   }
 
-  doLogin() {
-    //
+  doLogin() {    
     this._loginService.login(this.email, this.password)
       .then(authState => {
         console.log("LOGIN-THEN", authState);
         let creds = { user: this.email, password: this.password }
         this._storage.set("creds", creds);
-
         this.navCtrl.push(Page1);
       })
       .catch(error => {

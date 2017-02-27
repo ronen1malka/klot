@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
-  selector: 'buuton-icon',
-  templateUrl: 'buttonWithIconComponent.html'
+    selector: 'button-icon',
+    templateUrl: 'buttonWithIconComponent.html'
 })
-export class HomePage {
+export class butonWithIcon {
+    @Input() label: string = "";
+    @Input() icon: string = "";
+    @Input() color: string = "primary"
+    @Output('onClick') Click = new EventEmitter();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+    onClick() {
+        this.Click.emit();
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
+
+
 
 }

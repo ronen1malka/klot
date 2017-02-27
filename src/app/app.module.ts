@@ -9,10 +9,15 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { RegestrationFormPage } from '../pages/regestration-form/regestration-form'
 import { Storage } from '@ionic/storage';
+
 //Services
 import { LoginService } from '../providers/login-service';
 import { alerts } from '../shared/alerts';
 import { AngularFireModule } from 'angularfire2';
+
+//Components
+import { butonWithIcon } from './../components/buttonWithIconComponent';
+
 
 
 export const firbaseConfig = {
@@ -29,7 +34,8 @@ export const firbaseConfig = {
     LoginPage,
     RegestrationFormPage,
     Page2,
-    HomePage
+    HomePage,
+    butonWithIcon
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -42,7 +48,8 @@ export const firbaseConfig = {
     LoginPage,
     RegestrationFormPage,
     Page2,
-    HomePage
+    HomePage,
+    butonWithIcon
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

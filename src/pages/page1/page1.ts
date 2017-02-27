@@ -15,4 +15,17 @@ export class Page1 {
     })
   }
 
+clickPerson(){
+  console.log("Person click");  
+}
+
+clickPayments(){
+  console.log("Payments click");  
+}
+
+clickMembers(){
+  console.log("Members click");  
+}
+
+
 }
