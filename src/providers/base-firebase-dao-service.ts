@@ -6,13 +6,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BaseFirebaseDaoService {
 
-  public rootDoc: string = "";
-  constructor(public af: AngularFire) {
+  constructor(public af: AngularFire, public rootDoc: string = "") {
     console.log('Hello BaseFirebaseDaoService Provider');
   }
 
   list(): FirebaseListObservable<any[]> {
-    return this.af.database.list('rootDoc');
+    return this.af.database.list(this.rootDoc);
   }
 
   get() {
@@ -23,8 +22,9 @@ export class BaseFirebaseDaoService {
 
   }
 
-  create() {
-
+  create(list: FirebaseListObservable<any[]>, item: any) {
+    console.log("Create...");
+    list.push(item);
   }
 
   remove() {

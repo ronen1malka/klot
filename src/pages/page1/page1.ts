@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { NavController } from 'ionic-angular';
-
+import {MembersListPagePage} from '../members-list-page/members-list-page'
 @Component({
   
   templateUrl: 'page1.html'
@@ -24,7 +24,8 @@ clickPayments(){
 }
 
 clickMembers(){
-  console.log("Members click");  
+  console.log("Members click");
+  this.navCtrl.push(MembersListPagePage, { })
 }
 
 

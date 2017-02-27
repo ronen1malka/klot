@@ -8,17 +8,19 @@ import { Page2 } from '../pages/page2/page2';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { RegestrationFormPage } from '../pages/regestration-form/regestration-form'
+import {MembersListPagePage} from '../pages/members-list-page/members-list-page'
+import {MembersFormPagePage} from '../pages/members-form-page/members-form-page'
+
 import { Storage } from '@ionic/storage';
 
 //Services
 import { LoginService } from '../providers/login-service';
 import { alerts } from '../shared/alerts';
 import { AngularFireModule } from 'angularfire2';
+import { MemberService } from '../providers/member-service';
 
 //Components
 import { butonWithIcon } from './../components/buttonWithIconComponent';
-
-
 
 export const firbaseConfig = {
     apiKey: "AIzaSyC_dY5Mmf9gYBGbPd2cLKurNX2HR4OZq1g",
@@ -35,7 +37,9 @@ export const firbaseConfig = {
     RegestrationFormPage,
     Page2,
     HomePage,
-    butonWithIcon
+    butonWithIcon,
+    MembersListPagePage,
+    MembersFormPagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -49,11 +53,14 @@ export const firbaseConfig = {
     RegestrationFormPage,
     Page2,
     HomePage,
-    butonWithIcon
+    butonWithIcon,
+    MembersListPagePage,
+    MembersFormPagePage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginService,
+    MemberService,
     alerts,
     Storage
   ]  
