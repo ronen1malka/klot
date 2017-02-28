@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 //Pages
 import { Page1 } from '../pages/page1/page1';
@@ -43,6 +44,7 @@ export const firbaseConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    FormsModule,ReactiveFormsModule,
     AngularFireModule.initializeApp(firbaseConfig)
   ],
   bootstrap: [IonicApp],
