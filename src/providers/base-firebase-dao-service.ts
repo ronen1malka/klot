@@ -25,7 +25,7 @@ export class BaseFirebaseDaoService {
     list.push(item);
   }
 
-  remove(key: string) {
-    this.af.database.object(this.rootDoc + "/" + key).remove;
+  remove(key: string):firebase.Promise<void> {
+    return this.af.database.object(this.rootDoc + "/" + key).remove();
   }
 }

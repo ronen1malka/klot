@@ -17,5 +17,6 @@
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
       <button ion-button type="submit" [disabled]="!form.valid">Submit</button>
+      <button ion-button type="button" (click)="remove()">Delete</button>
     </form>
 </ion-content>
