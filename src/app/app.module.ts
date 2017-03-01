@@ -1,3 +1,4 @@
+import { BaseFormHandler } from './../shared/base-form-handler';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -9,8 +10,8 @@ import { Page2 } from '../pages/page2/page2';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { RegestrationFormPage } from '../pages/regestration-form/regestration-form'
-import {MembersListPagePage} from '../pages/members-list-page/members-list-page'
-import {MembersFormPagePage} from '../pages/members-form-page/members-form-page'
+import {MembersListPage} from '../pages/members-list-page/members-list-page'
+import {MembersFormPage} from '../pages/members-form-page/members-form-page'
 
 import { Storage } from '@ionic/storage';
 
@@ -22,6 +23,8 @@ import { MemberService } from '../providers/member-service';
 
 //Components
 import { butonWithIcon } from './../components/buttonWithIconComponent';
+
+
 
 export const firbaseConfig = {
     apiKey: "AIzaSyC_dY5Mmf9gYBGbPd2cLKurNX2HR4OZq1g",
@@ -39,8 +42,9 @@ export const firbaseConfig = {
     Page2,
     HomePage,
     butonWithIcon,
-    MembersListPagePage,
-    MembersFormPagePage
+    MembersListPage,
+    MembersFormPage,
+    BaseFormHandler
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -56,8 +60,9 @@ export const firbaseConfig = {
     Page2,
     HomePage,
     butonWithIcon,
-    MembersListPagePage,
-    MembersFormPagePage
+    MembersListPage,
+    MembersFormPage,
+    BaseFormHandler
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -7,9 +7,15 @@
 
 
 <ion-content padding>
-  <form [formGroup]="form">
-    <input formControlName='name'>
-    <input  formControlName='email'>
-  
-  </form>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label>name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
 </ion-content>

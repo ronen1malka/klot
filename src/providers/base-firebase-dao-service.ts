@@ -18,7 +18,7 @@ export class BaseFirebaseDaoService {
   }
 
   update(key: string, item: any) {
-    this.af.database.object(this.rootDoc + "/" + key).set(item);
+    this.af.database.object(this.rootDoc + "/" + key).update(item);
   }
 
   create(list: FirebaseListObservable<any[]>, item: any) {    

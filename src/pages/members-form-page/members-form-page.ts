@@ -1,34 +1,28 @@
-import { Component,Inject } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import
-{ FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-
+import { BaseFormHandler } from './../../shared/base-form-handler';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MemberService } from '../../providers/member-service';
+import { NavParams } from 'ionic-angular';
+import { AngularFire } from 'angularfire2';
 
 @Component({
-  selector: 'page-members-form-page',
   templateUrl: 'members-form-page.html'
 })
-export class MembersFormPagePage {
-  form: FormGroup;
-
-
-  item;
-  constructor(@Inject(FormBuilder) navCtrl: NavController,
-    private navParams: NavParams,
-    fb: FormBuilder) {
-      
-    this.item = this.navParams.get("item");
-
-    this.form = fb.group({
+export class MembersFormPage extends BaseFormHandler<MemberService>{
+  constructor(public navParams: NavParams,
+    public fb: FormBuilder, af: AngularFire) {
+    super(navParams, fb);
+    this.dao = new MemberService(af);
+  }
+  buildForm() {
+    this.form = this.fb.group({
       name: [this.item.name, Validators.required],
       email: [this.item.email, Validators.required]
     });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MembersFormPagePage');
-
+    console.log('ionViewDidLoad MembersFormPage');
   }
 
 }

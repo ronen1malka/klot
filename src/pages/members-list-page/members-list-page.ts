@@ -1,6 +1,6 @@
 import {Member} from '../../entities/member'
 import { MemberService } from '../../providers/member-service';
-import { MembersFormPagePage } from '../members-form-page/members-form-page'
+import { MembersFormPage } from '../members-form-page/members-form-page'
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2';
@@ -9,7 +9,7 @@ import { FirebaseListObservable } from 'angularfire2';
   selector: 'page-members-list-page',
   templateUrl: 'members-list-page.html'
 })
-export class MembersListPagePage {
+export class MembersListPage {
   members:FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,7 +30,7 @@ export class MembersListPagePage {
 
   itemSelected(item) {
     console.log("member selected: " + item);
-    this.navCtrl.push(MembersFormPagePage, { item: item });
+    this.navCtrl.push(MembersFormPage, { item: item });
   }
 
 }
