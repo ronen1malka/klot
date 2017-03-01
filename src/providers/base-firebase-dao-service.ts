@@ -2,7 +2,6 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-
 @Injectable()
 export class BaseFirebaseDaoService {
 
@@ -14,16 +13,15 @@ export class BaseFirebaseDaoService {
     return this.af.database.list(this.rootDoc);
   }
 
-  get() {
-
+  get(key: string) {
+    this.af.database.object(this.rootDoc + "/" + key);
   }
 
   update(key: string, item: any) {
     this.af.database.object(this.rootDoc + "/" + key).set(item);
   }
 
-  create(list: FirebaseListObservable<any[]>, item: any) {
-    console.log("Create...");
+  create(list: FirebaseListObservable<any[]>, item: any) {    
     list.push(item);
   }
 
