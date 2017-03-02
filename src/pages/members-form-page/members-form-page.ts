@@ -3,16 +3,19 @@ import { BaseFormHandler } from './../../shared/base-form-handler';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MemberService } from '../../providers/member-service';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
 
 @Component({
   templateUrl: 'members-form-page.html'
 })
 export class MembersFormPage extends BaseFormHandler<MemberService>{
-  constructor(public navParams: NavParams,
-    public fb: FormBuilder, af: AngularFire, public _alerts: alerts) {
-    super(navParams, fb, _alerts);
+  constructor(navCtrl: NavController,
+    navParams: NavParams,
+    public fb: FormBuilder,
+    af: AngularFire,
+    _alerts: alerts) {
+    super(navCtrl, navParams,fb, _alerts);    
     this.dao = new MemberService(af);
   }
   buildForm() {

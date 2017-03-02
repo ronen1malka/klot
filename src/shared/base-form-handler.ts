@@ -1,39 +1,43 @@
 import { alerts } from './alerts';
 import { BaseFirebaseDaoService } from './../providers/base-firebase-dao-service';
-import { Injectable,Component,Inject } from '@angular/core';
-import { NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FirebaseListObservable } from 'angularfire2';
+import { Injectable, Component } from '@angular/core';
+import { NavParams, NavController } from 'ionic-angular';
+import { FormGroup,FormBuilder } from '@angular/forms';
 
 @Injectable()
-@Component({   
-     templateUrl: './dummy.html'
+@Component({
+  templateUrl: './dummy.html'
 })
 export class BaseFormHandler<T extends BaseFirebaseDaoService> {
   form: FormGroup;
   item;
   
-  dao:T;
-  constructor(public navParams: NavParams,
-    public fb: FormBuilder, public _alerts:alerts) {
-    this.item = this.navParams.get("item");    
+  dao: T;
+  constructor(private navCtrl: NavController, 
+    private navParams: NavParams,
+    public fb: FormBuilder,
+    private _alerts: alerts) {
+    this.item = this.navParams.get("item");
     this.buildForm();
   }
 
-  buildForm(){
+  buildForm() {
     //to be ovveride in sub clusses.
   }
 
-  remove(){    
+  remove() {
     this.dao.remove(this.item.$key)
-    .then((a:void) => {
-      this._alerts.presentToast("removed success");
-    })
-    .catch((a:Error) => {this._alerts.presentToast("remove fail")});
+      .then((a: void) => {
+        this.navCtrl.pop();
+        this._alerts.presentToast("removed success");
+      })
+      .catch((a: Error) => { this._alerts.presentToast("remove fail") });
   }
   submit() {
     console.log(this.form.value);
+    this.navCtrl.pop();
     let key = this.item.$key;
     this.dao.update(key, this.form.value);
+     this._alerts.presentToast("submit success");
   }
 }
