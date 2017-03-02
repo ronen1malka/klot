@@ -1,3 +1,4 @@
+import { alerts } from './../../shared/alerts';
 import { BaseFormHandler } from './../../shared/base-form-handler';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -10,8 +11,8 @@ import { AngularFire } from 'angularfire2';
 })
 export class MembersFormPage extends BaseFormHandler<MemberService>{
   constructor(public navParams: NavParams,
-    public fb: FormBuilder, af: AngularFire) {
-    super(navParams, fb);
+    public fb: FormBuilder, af: AngularFire, public _alerts: alerts) {
+    super(navParams, fb, _alerts);
     this.dao = new MemberService(af);
   }
   buildForm() {
@@ -20,9 +21,4 @@ export class MembersFormPage extends BaseFormHandler<MemberService>{
       email: [this.item.email, Validators.required]
     });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MembersFormPage');
-  }
-
 }
