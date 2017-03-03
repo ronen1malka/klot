@@ -9,5 +9,5 @@ export class Organization {
     zip: number;
     status: string;
     timeStamp: Date;
-    dateCreated = Date;
+    dateCreated : Date;
 }

@@ -16,12 +16,12 @@ export class alerts {
         alert.present();
     }
 
-    public presentToast(text: string) {
+    public presentToast(text: string):Promise<any> {
         let toast = this.toastCtrl.create({
             message: text,
             duration: 3000
         });
-        toast.present();
+        return toast.present();
     }
 
 }

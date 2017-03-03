@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>members-list.page</ion-title>
+    <ion-title>בתי כנסת</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,8 +11,8 @@
     <button ion-fab mini (click)="add()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   <ion-list>
-    <button ion-item *ngFor="let member of members | async" (click)="itemSelected(member)">
-    {{ member.name }}
+    <button ion-item *ngFor="let item of items | async" (click)="itemSelected(item)">
+    {{ item.name }}
   </button>
   </ion-list>
 </ion-content>

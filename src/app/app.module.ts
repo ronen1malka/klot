@@ -1,6 +1,6 @@
 import { BaseFormHandler } from './../shared/base-form-handler';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, AlertController } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -20,9 +20,13 @@ import { LoginService } from '../providers/login-service';
 import { alerts } from '../shared/alerts';
 import { AngularFireModule } from 'angularfire2';
 import { MemberService } from '../providers/member-service';
+import { OrganizationService } from "../providers/organization-service";
 
 //Components
 import { butonWithIcon } from './../components/buttonWithIconComponent';
+import { OrganizationFormPage } from "../pages/organization-form/organization-form";
+import { OrganizationListPage } from "../pages/organization-list/organization-list";
+
 
 
 
@@ -44,6 +48,8 @@ export const firbaseConfig = {
     butonWithIcon,
     MembersListPage,
     MembersFormPage,
+    OrganizationFormPage,
+    OrganizationListPage,
     BaseFormHandler
   ],
   imports: [
@@ -62,6 +68,8 @@ export const firbaseConfig = {
     butonWithIcon,
     MembersListPage,
     MembersFormPage,
+    OrganizationFormPage,
+    OrganizationListPage,
     BaseFormHandler
   ],
   providers: [
@@ -69,7 +77,9 @@ export const firbaseConfig = {
     LoginService,
     MemberService,
     alerts,
-    Storage
+    Storage,
+    AlertController,
+    OrganizationService
   ]  
 })
 export class AppModule { }

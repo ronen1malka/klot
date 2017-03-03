@@ -6,7 +6,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
-  selector: 'page-members-list-page',
   templateUrl: 'members-list-page.html'
 })
 export class MembersListPage {
@@ -28,8 +27,7 @@ export class MembersListPage {
     this._memberService.create(this.members,mem);
   }
 
-  itemSelected(item) {
-    console.log("member selected: " + item);
+  itemSelected(item) {   
     this.navCtrl.push(MembersFormPage, { item: item });
   }
 
