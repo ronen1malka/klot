@@ -1,34 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AngularFire,AuthMethods,AuthProviders } from 'angularfire2';
 import 'rxjs/add/operator/map';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Injectable()
 export class LoginService {
 
-  constructor(private af: AngularFire) {
+  constructor(public afAuth: AngularFireAuth) {
     console.log('Hello LoginService Provider');
   }
 
   login(email, password) {
-    return this.af.auth.login({
-      email: email,
-      password: password
-    },{
-    method:AuthMethods.Password,
-    provider:AuthProviders.Password
-   });   
+    return this.afAuth.auth.signInWithEmailAndPassword(email,password);   
   }
 
   register(email="", password="") {
-    return this.af.auth.createUser({
-      email: email,
-      password: password
-      
-    });
+    return this.afAuth.auth.createUserWithEmailAndPassword(email,password);
   }
 
   logout() {
-    this.af.auth.logout();
+    this.afAuth.auth.signOut();
   }
 }

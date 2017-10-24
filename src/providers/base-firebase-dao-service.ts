@@ -1,33 +1,34 @@
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
+
+
 
 @Injectable()
 export class BaseFirebaseDaoService {
 
-  constructor(public af: AngularFire, public rootDoc: string = "") {
+  constructor(public db: AngularFireDatabase, public rootDoc: string = "") {
     console.log('Hello BaseFirebaseDaoService Provider');
   }
 
-  list(): FirebaseListObservable<any[]> {
-    return this.af.database.list(this.rootDoc);
+  list(): AngularFireList<any[]> {
+    return this.db.list(this.rootDoc);
   }
 
   get(key: string) {
-    this.af.database.object(this.rootDoc + "/" + key);
+    this.db.object(this.rootDoc + "/" + key);
   }
 
   update(key: string, item: any) {
-    this.af.database.object(this.rootDoc + "/" + key).update(item);
+    this.db.object(this.rootDoc + "/" + key).update(item);
   }
 
-  create(list: FirebaseListObservable<any[]>, item: any) {
-    this.af.database.object(this.rootDoc ).set(item);
+  create(item: any) {
+    this.db.object(this.rootDoc ).set(item);
     
-    list.push(item);
+    this.db.list(this.rootDoc).push(item);
   }
 
-  remove(key: string):firebase.Promise<void> {
-    return this.af.database.object(this.rootDoc + "/" + key).remove();
+  remove(key: string):Promise<void> {
+    return this.db.object(this.rootDoc + "/" + key).remove();
   }
 }

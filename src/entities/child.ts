@@ -3,8 +3,6 @@ export class Child {
     gender: string;
     Name: string;
     parasha: string;
-    barmitzva: Date;
-    birthDate: Date;
-    occasions: number[]; //occasions Ids
+    events: Event[];    
     timeStamp = new Date();
 }

@@ -1,13 +1,13 @@
+import {AngularFireDatabase} from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { BaseFirebaseDaoService } from "./base-firebase-dao-service";
-import { AngularFire } from "angularfire2";
+
 
 
 @Injectable()
 export class OrganizationService extends BaseFirebaseDaoService{
 
-  constructor(public af: AngularFire) {
-    super(af, "/orgs");   
+  constructor(public db: AngularFireDatabase) {
+    super(db, "/orgs");   
   }
 }

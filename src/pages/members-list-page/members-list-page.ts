@@ -3,28 +3,27 @@ import { MemberService } from '../../providers/member-service';
 import { MembersFormPage } from '../members-form-page/members-form-page'
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'members-list-page.html'
 })
 export class MembersListPage {
-  members:FirebaseListObservable<any[]>;
+  members:Observable<any[]>;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private _memberService: MemberService) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BooksListPage');
-    this.members = this._memberService.list();
+    this.members = this._memberService.list().valueChanges();
   }
 
   add(){
     let mem:Member = new Member();
     mem.name="DDD";
-    mem.adrress="adrs 1"
-    //this.members.push(mem);
-    this._memberService.create(this.members,mem);
+    mem.adrress="adrs 1"    
+    this._memberService.create(mem);
   }
 
   itemSelected(item) {   

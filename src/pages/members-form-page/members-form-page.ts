@@ -1,10 +1,11 @@
+import {AngularFireDatabase} from 'angularfire2/database';
 import { alerts } from './../../shared/alerts';
 import { BaseFormHandler } from './../../shared/base-form-handler';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MemberService } from '../../providers/member-service';
 import { NavParams, NavController } from 'ionic-angular';
-import { AngularFire } from 'angularfire2';
+
 
 @Component({
   templateUrl: 'members-form-page.html'
@@ -13,10 +14,10 @@ export class MembersFormPage extends BaseFormHandler<MemberService>{
   constructor(navCtrl: NavController,
     navParams: NavParams,
     public fb: FormBuilder,
-    af: AngularFire,
+    afd:AngularFireDatabase,
     _alerts: alerts) {
     super(navCtrl, navParams,fb, _alerts);    
-    this.dao = new MemberService(af);
+    this.dao = new MemberService(afd);
   }
   buildForm() {
     this.form = this.fb.group({
