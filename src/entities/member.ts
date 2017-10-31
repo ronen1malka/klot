@@ -3,7 +3,7 @@ import { Event } from './event';
 export class Member {
     id: number = 0;
     organizationId: number = 0;
-    type: string = "member";
+    type: string = "member"; //guest / admin / gabai / gizbar
     cli: string = "I"; // Cohen / Levi / Israel
     name: string = "";
     adrress: string = "";

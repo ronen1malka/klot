@@ -1,6 +1,5 @@
 export class Organization {
-    id: number = -1;
-    code: number;
+    id: number = -1;    
     email: string;
     name: string;
     phone: string;
