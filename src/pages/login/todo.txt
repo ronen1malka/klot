@@ -4,6 +4,3 @@
 3) when register org, forowrd to create new org page, and than forword to create member page.
 4) when creating new member, need to send activate account mail.
 5) need to handle forgot password.
-6) hello
-7) Added by ronen.
-8) merge
