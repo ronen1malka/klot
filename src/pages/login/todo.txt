@@ -5,3 +5,4 @@
 4) when creating new member, need to send activate account mail.
 5) need to handle forgot password.
 6) hello
+7) Added by ronen.
