@@ -58,6 +58,13 @@ export class LoginPage {
       });
   }
 
+  doReset(){
+    this._loginService.reset(this.email).then(() =>{console.log("email sent");this._alerts.presentToast("Email sent")} )
+    .catch(error =>{
+      console.log("RESET-LOGIN-ERROR",error);
+      this._alerts.showAlert("שגיאה", "Reset failed", ["OK"]);
+    });
+  }
   register() {
     this.navCtrl.push(RegestrationFormPage);
   }
