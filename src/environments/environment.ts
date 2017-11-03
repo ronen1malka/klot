@@ -1,4 +1,8 @@
-﻿export const environment = {
+﻿import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { HttpClient } from '@angular/common/http';
+
+export const environment = {
     production: false,
     firebase: {
         apiKey: "AIzaSyCog0AA9ICm1SadztOCSIX6s7G-TU_UEaw",
@@ -9,3 +13,7 @@
         messagingSenderId: "463264992294"
     }
 };
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

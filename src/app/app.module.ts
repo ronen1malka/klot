@@ -4,9 +4,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler, AlertController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MyApp } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 //Pages
 import { Page1 } from '../pages/page1/page1';
 import { LoginPage } from '../pages/login/login';
@@ -15,7 +18,6 @@ import { RegestrationFormPage } from '../pages/regestration-form/regestration-fo
 import { MembersListPage } from '../pages/members-list-page/members-list-page'
 import { MembersFormPage } from '../pages/members-form-page/members-form-page'
 
-import { IonicStorageModule } from '@ionic/storage';
 //Services
 import { LoginService } from '../providers/login-service';
 import { alerts } from '../shared/alerts';
@@ -31,9 +33,7 @@ import { OrganizationService } from "../providers/organization-service";
 import { butonWithIcon } from './../components/buttonWithIconComponent';
 import { OrganizationFormPage } from "../pages/organization-form/organization-form";
 import { OrganizationListPage } from "../pages/organization-list/organization-list";
-import { environment } from '../environments/environment';
-
-
+import { environment, createTranslateLoader } from '../environments/environment';
 
 
 @NgModule({
@@ -58,7 +58,15 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase, "Kehilot"),
     AngularFireDatabaseModule,  
     AngularFirestoreModule,  
-    AngularFireAuthModule,    
+    AngularFireAuthModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
