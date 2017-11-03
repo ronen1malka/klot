@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>SwordSoft Layout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+* { margin:0; padding:0; }
+html, body { width:100%; height:100%; background:#eeeeee; }
+canvas { display:block; background:#ffffff; /*margin:25px auto; border:1px solid #cccccc*/ }
+div { position:absolute; top:20px; left:20px; width:200px; }
+</style>
+<script type="text/javascript" src="kehilot/layout.js" charset="utf-8">
+</script>
+<script type="text/javascript" charset="utf-8">
+function initPage() {
+initBar('kehilot/prev.png', 'kehilot/next.png');
+var page = addPage('kehilot/page1.png', true);
+page.AddLink(47.857,444.857,231.857,28,3);
+page.AddLink(49.286,316.286,231.857,28,2);
+page.AddLink(50,276.286,231.857,28,1);
+page = addPage('kehilot/page2.png', false);
+page = addPage('kehilot/page3.png', false);
+page = addPage('kehilot/page4.png', false);
+}
+</script>
+</head>
+<body>
+<canvas id="drawarea" onmousedown="canvas_onmousedown(event)" onmousemove="canvas_onmousemove(event)" onmouseup="canvas_onmouseup(event)" ondblclick="canvas_ondblclick(event)">
+Your browser does not support canvas.
+</canvas>
+</body>
+</html>
